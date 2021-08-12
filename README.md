@@ -76,8 +76,8 @@ all videos were converted with ffmpeg using this command line:
 
 
 
-# /boot/config.txt
-# SCREEN STUFF:
+## /boot/config.txt
+#### SCREEN STUFF:
 hdmi_force_hotplug=1
 
 hdmi_group=2
@@ -89,11 +89,11 @@ hdmi_cvt=800 480 60 6 0 0 0
 hdmi_drive=1
 
 
-# GPU MEMORY:
+#### GPU MEMORY:
 gpu_mem=256
 
 
-# I2C, SPI, UART (to read ADC and one-pin-off):
+#### I2C, SPI, UART (to read ADC and one-pin-off):
 dtparam=i2c_arm=on
 
 dtparam=spi=on
@@ -101,15 +101,15 @@ dtparam=spi=on
 enable_uart=1
 
 
-# TO ACCESS THE MUXER (74hc4051):
+#### TO ACCESS THE MUXER (74hc4051):
 dtoverlay=gpio-no-irq
 
-# AUDIO:
+#### AUDIO:
 dtparam=audio=on
 
-# TO ROTATE DISPLAY:
+#### TO ROTATE DISPLAY:
 display_rotate=2
 
-# /boot/cmdline.txt
+## /boot/cmdline.txt
 add at end of line: (to hide console text after 10 seconds)
 consoleblank=10
