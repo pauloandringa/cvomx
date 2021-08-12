@@ -1,5 +1,5 @@
 # cvomx
-eurorack compatible raspberryPI video player using Control Voltage (CV) and dbus to manipulate multiple OMXPlayers
+eurorack compatible raspberryPI video player in nodejs using Control Voltage (CV) and dbus to manipulate multiple OMXPlayers
 
 ## Components:
 * [rPi_synth](https://github.com/sourya-sen/rPi_synth) board (from https://github.com/sourya-sen/rPi_synth)
