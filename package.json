@@ -1,0 +1,31 @@
+{
+  "name": "cvomx",
+  "version": "1.0.0",
+  "description": "eurorack compatible raspberryPI video player - written in nodejs - using Control Voltage (CV) and dbus to manipulate multiple OMXPlayers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "controlvoltage",
+    "cv",
+    "omxplayer",
+    "raspberry",
+    "eurorack"
+  ],
+  "author": "paulo.andringa",
+  "license": "ISC",
+  "dependencies": {
+    "child_process": "^1.0.2",
+    "fs": "0.0.1-security",
+    "hh-mm-ss": "^1.2.0",
+    "joystick": "^0.1.2",
+    "keypress": "^0.2.1",
+    "mcp-spi-adc": "^3.1.1",
+    "node-video-lib": "^2.2.1",
+    "omx-manager": "^0.1.4",
+    "on-change": "^3.0.2",
+    "onoff": "^6.0.3",
+    "rpio": "^2.4.2"
+  }
+}
