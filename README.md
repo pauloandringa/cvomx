@@ -39,11 +39,11 @@ On the left side, there are 4 POTs and 4 CV inputs, connected to an ADC MCP3008.
 * channels 0-1-2-3 receive the POTs values as a value between 0 and 1
 * channels 4-5-6-7 receive the CV inputs values as a value between 0 and 1 (but for example the 'Qu-Bit Octone' only outputs between 0 and 5V, that the ADC sees as between 0.5 and 1... but I believe that other modules will output between -5 and 5v... that's eurorack for you :-))
 
-    treating each POT+CV as a pair, we get the computed values for each row like this:
-        0 - POT0 | CV0 - 4 ==> computedValue0 = Math.floor((pot0_value * varCV0_value) * 255); -> opacity, between 0 and 255 (0 is transparent, 255 is full opacity)
-        1 - POT1 | CV1 - 5 ==> computedValue1 = (pot1_value * varCV1_value) * 2.5; -> volume, between 0 and 2.5 (1 is normal volume)
-        2 - POT2 | CV2 - 6 ==> computedValue2 = (pot2_value * varCV2_value) * 8; -> speed, between 0 and 8 (1 is normal)
-        3 - POT3 | CV3 - 7 ==> computedValue3 = (pot3_value * varCV3_value); -> startingPoint, between 0 and 1 (0 is the beginning of the movie)
+* treating each POT+CV as a pair, we get the computed values for each row like this:
+  * 0 - POT0 | CV0 - 4 ==> computedValue0 = Math.floor((pot0_value * varCV0_value) * 255); -> opacity, between 0 and 255 (0 is transparent, 255 is full opacity)
+  * 1 - POT1 | CV1 - 5 ==> computedValue1 = (pot1_value * varCV1_value) * 2.5; -> volume, between 0 and 2.5 (1 is normal volume)
+  * 2 - POT2 | CV2 - 6 ==> computedValue2 = (pot2_value * varCV2_value) * 8; -> speed, between 0 and 8 (1 is normal)
+  * 3 - POT3 | CV3 - 7 ==> computedValue3 = (pot3_value * varCV3_value); -> startingPoint, between 0 and 1 (0 is the beginning of the movie)
 
 On the right:
 * a single piDown switch, connected to pin16 (GPIO23), that is used to powerdown the machine (softly, via software)
@@ -79,23 +79,36 @@ all videos were converted with ffmpeg using this command line:
 # /boot/config.txt
 # SCREEN STUFF:
 hdmi_force_hotplug=1
+
 hdmi_group=2
+
 hdmi_mode=87
+
 hdmi_cvt=800 480 60 6 0 0 0
+
 hdmi_drive=1
+
+
 # GPU MEMORY:
 gpu_mem=256
+
+
 # I2C, SPI, UART (to read ADC and one-pin-off):
 dtparam=i2c_arm=on
+
 dtparam=spi=on
+
 enable_uart=1
+
+
 # TO ACCESS THE MUXER (74hc4051):
 dtoverlay=gpio-no-irq
+
 # AUDIO:
 dtparam=audio=on
+
 # TO ROTATE DISPLAY:
 display_rotate=2
-
 
 # /boot/cmdline.txt
 add at end of line: (to hide console text after 10 seconds)
