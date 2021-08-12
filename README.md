@@ -2,8 +2,14 @@
 eurorack compatible raspberryPI video player using Control Voltage (CV) and dbus to manipulate multiple OMXPlayers
 
 # Components:
-    rPi_synth board (from https://github.com/sourya-sen/rPi_synth)
-    5inch HDMI LCD (https://www.waveshare.com/wiki/5inch_HDMI_LCD => driver: https://github.com/waveshare/LCD-show)
+    rPi_synth board (from 
+    https://github.com/sourya-sen/rPi_synth
+    )
+    5inch HDMI LCD (
+    https://www.waveshare.com/wiki/5inch_HDMI_LCD
+    => driver: 
+    https://github.com/waveshare/LCD-show
+    )
     raspberry pi (minimum tested = Raspberry Pi 3 Model B Rev 1.2) running:
         omxplayer
         dbus
