@@ -1,26 +1,22 @@
 # cvomx
 eurorack compatible raspberryPI video player using Control Voltage (CV) and dbus to manipulate multiple OMXPlayers
 
-# Components:
-    rPi_synth board (from 
-    https://github.com/sourya-sen/rPi_synth
-    )
-    5inch HDMI LCD (
-    https://www.waveshare.com/wiki/5inch_HDMI_LCD
-    => driver: 
-    https://github.com/waveshare/LCD-show
-    )
-    raspberry pi (minimum tested = Raspberry Pi 3 Model B Rev 1.2) running:
-        omxplayer
-        dbus
-        nodejs app
+## Components:
+* [rPi_synth](https://github.com/sourya-sen/rPi_synth) board (from https://github.com/sourya-sen/rPi_synth)
+* [5inch HDMI LCD](https://www.adafruit.com/product/2260) => [driver](https://github.com/waveshare/LCD-show)
+* raspberry pi (minimum tested = Raspberry Pi 3 Model B Rev 1.2) running:
+  * omxplayer
+  * dbus
+  * this nodejs app + this dbuscontrol.sh
 
-The code consists of a) a NodeJS app to read values from an ADC MCP3008 Analog-to-Digital-Converter and a 74hc4051 Muxer, with 8 channels each, and control multiple OMXPlayer videoplayers and b) a modified dbuscontrol.sh file to control the running video players.
+The code consists of
+* a) a NodeJS app to read values from an ADC MCP3008 Analog-to-Digital-Converter and a 74hc4051 Muxer, with 8 channels each, and control multiple OMXPlayer videoplayers and
+* b) a modified dbuscontrol.sh file to control the running video players.
 
 There are 4 POTs and 4 CV inputs connected to the ADC that can be used (as POT-CV pairs) to control different parameters
 There are 8 gate/switches connected to the MUXER than can be used as triggers
 
-# INSTRUCTIONS:
+## Instructions:
 * 4 global 'live' parameters that apply to the 'active' video:
   * opacity
   * volume
@@ -37,7 +33,7 @@ There are 8 gate/switches connected to the MUXER than can be used as triggers
 * the uppermost trigger is for forcing a shutdown (GPIO23 - PIN 16) - not yet implemented
 
 
-# TECHNICALITIES:
+## Technicalities:
 
 On startup the app reads all files inside '/home/pi/omx_CV_node/movies/' and creates a list with name-duration pairs - one for each found file. That list is then used to calculate the dynamic starting point, multiplying the 0-1 from the input by the duration of the movie to get an absolute-seconds position for the video player.
 
@@ -75,14 +71,14 @@ On the right:
   * 6 - mark as active and start playing movie 4
   * 7 - mark as active and start playing movie 5
 
-# ffmpeg
+## ffmpeg
 all videos were converted with ffmpeg using this command line:
 
 > for file in `ls *.mp4`; do ffmpeg -i $file -ss 00:00:02.000 -filter_complex "scale=-2:480,crop=800:480:0:0,setsar=1:1" -r 25 -c:v h264 -pix_fmt yuv420p -tune fastdecode -movflags +faststart 800x480_tuned/$file; done
 
 
 
-## /boot/config.txt
+### /boot/config.txt
 #### SCREEN STUFF:
 hdmi_force_hotplug=1
 
@@ -116,6 +112,7 @@ dtparam=audio=on
 #### TO ROTATE DISPLAY:
 display_rotate=2
 
-## /boot/cmdline.txt
+### /boot/cmdline.txt
 add at end of line: (to hide console text after 10 seconds)
+
 consoleblank=10
