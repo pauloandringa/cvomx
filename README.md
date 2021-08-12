@@ -11,12 +11,13 @@ eurorack compatible raspberryPI video player - written in nodejs - using Control
   * dbus
   * this nodejs app + this dbuscontrol.sh
 
-The code consists of
+### The code
 * a) a NodeJS app to read values from an ADC MCP3008 Analog-to-Digital-Converter and a 74hc4051 Muxer, with 8 channels each, and control multiple OMXPlayer videoplayers and
 * b) a modified dbuscontrol.sh file to control the running video players.
 
-There are 4 POTs and 4 CV inputs connected to the ADC that can be used (as POT-CV pairs) to control different parameters
-There are 8 gate/switches connected to the MUXER than can be used as triggers
+### The hardware control
+* 4 POTs and 4 CV inputs connected to the ADC that can be used (as POT-CV pairs) to control different parameters
+* 8 gate/switches connected to the MUXER than can be used as triggers
 
 ## Usage:
 * 4 global 'live' parameters that apply to the 'active' video:
@@ -30,12 +31,12 @@ There are 8 gate/switches connected to the MUXER than can be used as triggers
   * 8 different 3d-glasses-effect (after a video restart) -> this is remembered over different executions
   * 17 different positions-on-screen (immediately) -> this is remembered over different executions
 
-* 5 lower buttons trigger (re)starting a movie (from the first five found in the movies folder) using the 'live' parameters and the 'remembered' optionss
+* 5 lower buttons trigger (re)starting a movie (from the first five found in the movies folder) using the 'live' parameters and the 'remembered' options
 
 * the uppermost trigger is for forcing a shutdown (GPIO23 - PIN 16) - not yet implemented
 
 ## Technicalities:
-On startup the app reads all files inside '/home/pi/omx_CV_node/movies/' and creates a list with name-duration pairs - one for each found file. That list is then used to calculate the dynamic starting point, multiplying the 0-1 from the input by the duration of the movie to get an absolute-seconds position for the video player.
+On startup the app reads all files inside '/home/pi/cvomx/movies/' and creates a list with name-duration pairs - one for each found file. That list is then used to calculate the dynamic starting point, multiplying the 0-1 from the input by the duration of the movie to get an absolute-seconds position for the video player.
 
 On the left side, there are 4 POTs and 4 CV inputs, connected to an ADC MCP3008.
 * channels 0-1-2-3 receive the POTs values as a value between 0 and 1
