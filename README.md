@@ -72,6 +72,27 @@ On the right:
   * 6 - mark as active and start playing movie 4
   * 7 - mark as active and start playing movie 5
 
+### go get it:
+```bash
+git clone https://github.com/pauloandringa/cvomx
+cd cvomx
+npm install
+```
+
+### test it:
+```bash
+node index.js
+```
+
+### starting as a service:
+(copy cvomx.service to /lib/systemd/system/cvomx.service, activate it and restart the systemd daemon)
+```bash
+sudo cp cvomx.service /lib/systemd/system/cvomx.service
+sudo chmod 644 /lib/systemd/system/cvomx.service
+sudo systemctl enable cvomx.service
+sudo systemctl daemon-reload
+```
+
 ## ffmpeg
 all videos were converted with ffmpeg using this command line:
 
