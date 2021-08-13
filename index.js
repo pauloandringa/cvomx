@@ -656,8 +656,15 @@ const varCV2 = mcpadc.open(varCV2_channel, err => {
 
 let computedValue2 = 0;
 
+
+function roundMultiples025(value, toNearest = 0.25, fixed = 2){
+    let roundedValue = (Math.round(value / toNearest) * toNearest).toFixed(fixed);
+    // console.log("original value: ", value, " => rounded value: ", roundedValue);
+    return roundedValue;
+  }
+
 function actionCV2() {
-    computedValue2 = (pot2_value * varCV2_value) * 8;
+    computedValue2 = roundMultiples025((pot2_value * varCV2_value) * 5);
     videoFiles[activeFilm].speed = computedValue2;
     // console.log("pot", pot2_channel, " - ", pot2_value, "; CV", varCV2_channel, " - ", varCV2_value, "; computed - ", computedValue2)
     let changeSpeed = exec(motherFolder + "dbuscontrol.sh rate " + videoFiles[activeFilm].speed + " " + activeFilm, function (err, stdout, stderr) {
