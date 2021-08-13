@@ -1,0 +1,13 @@
+[Unit]
+Description=CVOMX Service
+After=multi-user.target
+
+[Service]
+Type=idle
+User=pi
+Group=pi
+ExecStart=/bin/bash -c 'exec /usr/bin/node /home/pi/cvomx/index.js'
+WorkingDirectory=/home/pi/cvomx
+
+[Install]
+WantedBy=multi-user.target
