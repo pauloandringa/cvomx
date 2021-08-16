@@ -137,3 +137,15 @@ add at end of line: (to hide console text after 10 seconds)
 ```bash
 consoleblank=10
 ```
+
+
+## extra - dbus functionality!
+for the dbuscontrol.sh to work:
+```bash
+cd /home/pi/cvomx
+sudo chmod a+x dbuscontrol.sh
+
+export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/dbus/system_bus_socket
+```
+
+from my tests, this last command only needs to be executed once... more testing needed!
