@@ -3,6 +3,17 @@ eurorack compatible raspberryPI video player - written in nodejs - using Control
 
 ![picture of first prototype](https://raw.githubusercontent.com/pauloandringa/cvomx/main/first_version_cvomx.jpg)
 
+Comissioned and developed for a sound installation by artist João Pimenta Gomes, at the Gallery of the Portuguese Embassy in Berlin. (16/09/2021 - 20/10/2021)
+links:
+
+http://joaopimentagomes.com/
+
+https://maat.pt/en/event/joao-pimenta-gomes-clouds
+
+https://www.instagram.com/joaopimentagomes/
+
+Made at the Mill (https://mill.pt)
+
 ## Components:
 * [rPi_synth](https://github.com/sourya-sen/rPi_synth) board (from https://github.com/sourya-sen/rPi_synth)
 * [5inch HDMI LCD](https://www.adafruit.com/product/2260) => [driver](https://github.com/waveshare/LCD-show)
